@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROMAR INVITATION</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #89CFF0, #FFC0CB);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .invitation {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .invitation h1 {
+            color: #FF69B4;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .invitation p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .yes-btn {
+            background-color: #FF69B4;
+            color: white;
+        }
+
+        .yes-btn:hover {
+            background-color: #FF1493;
+        }
+
+        .no-btn {
+            background-color: #89CFF0;
+            color: white;
+        }
+
+        .no-btn:hover {
+            background-color: #4682B4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invitation">
+        <h1>Be My Valentine?</h1>
+        <p id="question">Tara G, parinig no more! HAHAHA nakita ko kasi mga repost mo sa tiktok eh</p>
+        <div class="button-container" id="buttons">
+            <button class="yes-btn" onclick="showNextQuestion()">YES</button>
+            <button class="no-btn" onclick="redirectNoOption()">NO</button>
+        </div>
+    </div>
+
+    <script>
+        function showNextQuestion() {
+            document.getElementById('question').textContent = 'ANONG ORAS KA PWEDE? WALA KANG TAKAS HAHAHA';
+            document.getElementById('buttons').innerHTML = `
+                <button class="yes-btn" onclick="setTime('3 PM')">3 PM</button>
+                <button class="yes-btn" onclick="setTime('4 PM')">4 PM</button>
+                <button class="yes-btn" onclick="setTime('5 PM')">5 PM</button>
+            `;
+        }
+
+        function setTime(time) {
+            document.getElementById('question').textContent = `NICE ONE, SUNDUIN KITA ${time} ❤️`;
+            document.getElementById('buttons').innerHTML = '';
+        }
+
+        function redirectNoOption() {
+            document.getElementById('question').textContent = "ABA SAKALIN KITA BAKIT TUMATANGGI KA, PUMILI KA NG ORAS!";
+            document.getElementById('buttons').innerHTML = `
+                <button class="yes-btn" onclick="setTime('3 PM')">3 PM</button>
+                <button class="yes-btn" onclick="setTime('4 PM')">4 PM</button>
+                <button class="yes-btn" onclick="setTime('5 PM')">5 PM</button>
+            `;
+        }
+    </script>
+</body>
+
+</html>
